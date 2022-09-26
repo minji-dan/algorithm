@@ -1,8 +1,9 @@
 # 2019 KAKAO BLIND RECRUITMENT
 # 실패율
+
 # 채점 결과
-# 정확성: 63.0
-# 합계: 63.0 / 100.0
+# 정확성: 88.9
+# 합계: 88.9 / 100.0
 
 # 전체 스테이지의 개수 N
 # 게임을 이용하는 사용자가 현재 멈춰있는 스테이지의 번호가 담긴 배열 stages
@@ -38,6 +39,11 @@ def solution(N, stages):
     cal = [0 for _ in range(N)]
     tmp = [0 for _ in range(N)]
     for i in range(N):
+        # 이 처리를 해줬어야 했다: 도전자가 0인 경우 0으로 나눌 수 없습니다.
+        if chal[i]==0:
+            cal[i]=0
+            tmp[i]=cal[i]
+            continue
         cal[i] = curr[i] / chal[i]
         tmp[i]=cal[i]
     print(cal, "실패율: cal=curr/chal")
